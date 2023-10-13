@@ -4,36 +4,20 @@ using UnityEngine;
 
 public class PJ_Movement : MonoBehaviour
 {
-    CharacterController cc;
-    Animator anim;
+    public CharacterController _controller;
+    public float _speed = 10;
+    public float _rotationSpeed = 180;
 
-    [SerializeField] float speed = 6f;
-    float jumpSpeed = 8f;
-    float gravity = 20f;
-    private Vector3 move = Vector3.zero;
+    private Vector3 rotation;
 
-    Vector3 isMoving = Vector3.zero;
-
-    private void Start()
+    public void Update()
     {
-        cc = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
-    }
+        this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
 
-    void Update()
-    {
-        move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //Comprobar si se mueve para playAnim
-    
-        if (isMoving != move)
-        {
-            anim.SetTrigger("Walking");
-        }
-
-
-       
-        cc.Move(move * Time.deltaTime * speed);
-       // transform.position.z = move.z;
-       isMoving = move;
+        Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
+        move = this.transform.TransformDirection(move);
+        move += Physics.gravity;
+        _controller.Move(move * _speed);
+        this.transform.Rotate(this.rotation);
     }
 }
