@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class PJ_Movement : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class PJ_Movement : MonoBehaviour
     public float _rotationSpeed = 180;
 
     private Vector3 rotation;
+
+    List<Flower> flowers;
 
     public void Update()
     {
@@ -19,5 +24,18 @@ public class PJ_Movement : MonoBehaviour
         move += Physics.gravity;
         _controller.Move(move * _speed);
         this.transform.Rotate(this.rotation);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "flower")
+        {
+             //Debug.Log("colisionando con flor");
+            if (Input.GetKey(KeyCode.E))
+            {
+                flowers.Add(other.gameObject.GetComponent<Flower>());
+                Debug.Log("guardo flor azul");
+            }
+        }
     }
 }
