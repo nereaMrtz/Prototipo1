@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-enum Color { BLUE, RED, WHITE}
+public enum Index { BLUE, RED, WHITE}
 
 public class Flower : MonoBehaviour
 {
-    [SerializeField] Color color;
+    [SerializeField] Index color;
     int prueba = 1;
-    Flower(Color color)
+    Flower(Index color)
     {
         this.color = color;
     }
 
-    public int GetPrueba() { return prueba; }
+    public Index GetColor(){
+        
+        return color; }
+
+    public Flower GetFlower()
+    {
+        return new Flower(this.color);
+    }
 }

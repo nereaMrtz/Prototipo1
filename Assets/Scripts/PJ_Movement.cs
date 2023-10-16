@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class PJ_Movement : MonoBehaviour
 
     private Vector3 rotation;
 
-    List<Flower> flowers;
+    List<Flower> flowers = new List<Flower>();
 
     public void Update()
     {
@@ -30,11 +31,13 @@ public class PJ_Movement : MonoBehaviour
     {
         if(other.tag == "flower")
         {
-             //Debug.Log("colisionando con flor");
+             Debug.Log("colisionando con flor");
             if (Input.GetKey(KeyCode.E))
             {
-                flowers.Add(other.gameObject.GetComponent<Flower>());
-                Debug.Log("guardo flor azul");
+                flowers.Add(other.gameObject.GetComponent<Flower>().GetFlower());
+                //Debug.Log("guardo flor azul");
+                Debug.Log(flowers.First().GetColor());
+                Destroy(other.gameObject);
             }
         }
     }
