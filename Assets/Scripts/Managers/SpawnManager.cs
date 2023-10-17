@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager instance;
-    public static SpawnManager GetInstance() { return instance; }
+    private static SpawnManager instance;
+    void Awake(){
+        DontDestroyOnLoad (this);
 
-    void Awake()
-    {
-        if(instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
+        if (instance == null) {
             instance = this;
-            DontDestroyOnLoad(this);
+        } 
+        
+        else {
+            DestroyObject(gameObject);
         }
     }
 }

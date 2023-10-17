@@ -14,5 +14,7 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(nextSceneName);
         playerTransform = newSpawn;
+
+        //if (currentSceneName == "Forest") ;
     }
 }
