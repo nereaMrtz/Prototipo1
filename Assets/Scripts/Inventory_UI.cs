@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inventory_UI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] PJ_Movement pj;
+    
     void Start()
     {
         
@@ -13,6 +14,9 @@ public class Inventory_UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(pj.GetFlowers().Count != 0)
+        {
+           // pj.GetFlowers()[0].
+        }
     }
 }

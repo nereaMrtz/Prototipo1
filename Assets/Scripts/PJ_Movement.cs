@@ -41,4 +41,6 @@ public class PJ_Movement : MonoBehaviour
             }
         }
     }
+
+    public List<Flower> GetFlowers() { return flowers; }
 }
