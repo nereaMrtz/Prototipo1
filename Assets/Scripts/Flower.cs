@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public enum Index { BLUE, RED, WHITE}
+public enum Index { BLUE, RED, WHITE, PURPLE}
 
 public class Flower : MonoBehaviour
 {
