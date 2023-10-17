@@ -14,7 +14,9 @@ public class PJ_Movement : MonoBehaviour
 
     private Vector3 rotation;
 
+    [SerializeField]Inventory_UI inventory;
     List<Flower> flowers = new List<Flower>();
+    int flowerCounter = 0;
 
     public void Update()
     {
@@ -36,11 +38,14 @@ public class PJ_Movement : MonoBehaviour
             {
                 flowers.Add(other.gameObject.GetComponent<Flower>().GetFlower());
                 //Debug.Log("guardo flor azul");
-                Debug.Log(flowers.First().GetColor());
+                Debug.Log(flowers[flowerCounter].GetColor());
+                inventory.AddFlowerToInventory(flowers[flowerCounter].GetColor());
+                flowerCounter++;
                 Destroy(other.gameObject);
             }
         }
     }
 
     public List<Flower> GetFlowers() { return flowers; }
+    public int GetFlowerCounter() {  return flowerCounter; }
 }

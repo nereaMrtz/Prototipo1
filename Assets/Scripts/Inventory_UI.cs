@@ -1,22 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Inventory_UI : MonoBehaviour
 {
-    [SerializeField] PJ_Movement pj;
-    
-    void Start()
+    [SerializeField] TextMeshProUGUI blue;
+    [SerializeField] TextMeshProUGUI red;
+    [SerializeField] TextMeshProUGUI white;
+    [SerializeField] TextMeshProUGUI purple;
+
+
+    int blueCounter =0; 
+    int redCounter =0;
+    int whiteCounter =0;
+    int purpleCounter=0;
+
+   void AddPurpleFlower()
     {
-        
+      purple.text += 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddFlowerToInventory(Index color)
     {
-        if(pj.GetFlowers().Count != 0)
+        switch (color)
         {
-           // pj.GetFlowers()[0].
+            case Index.BLUE:
+                blueCounter++;
+                blue.text = blueCounter.ToString();
+                break;
+            case Index.RED:
+                redCounter++;
+                red.text = redCounter.ToString();
+                break;
+            case Index.WHITE:
+                whiteCounter++; 
+                white.text = whiteCounter.ToString();
+                break;
+            case Index.PURPLE: 
+                purpleCounter++;
+                purple.text = purpleCounter.ToString();
+                break;
         }
     }
+ 
+ 
 }

@@ -8,7 +8,6 @@ public enum Index { BLUE, RED, WHITE, PURPLE}
 
 public class Flower : MonoBehaviour
 {
-
     [SerializeField] Index color;
     int prueba = 1;
     Color colorInv;
