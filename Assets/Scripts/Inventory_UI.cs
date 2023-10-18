@@ -44,6 +44,28 @@ public class Inventory_UI : MonoBehaviour
                 break;
         }
     }
- 
+
+    public void SubstractFlowerToInventory(Index color)
+    {
+        switch (color)
+        {
+            case Index.BLUE:
+                blueCounter--;
+                blue.text = blueCounter.ToString();
+                break;
+            case Index.RED:
+                redCounter--;
+                red.text = redCounter.ToString();
+                break;
+            case Index.WHITE:
+                whiteCounter--; 
+                white.text = whiteCounter.ToString();
+                break;
+            case Index.PURPLE: 
+                purpleCounter--;
+                purple.text = purpleCounter.ToString();
+                break;
+        }
+    }
  
 }
