@@ -531,6 +531,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   handFlower1: {fileID: 4845227622287359868}
   handFlower4: {fileID: 1212185393917921885}
+  potion: {fileID: 437036665195671002}
 --- !u!143 &4517950552924513177
 CharacterController:
   m_ObjectHideFlags: 0
@@ -722,6 +723,11 @@ PrefabInstance:
 --- !u!4 &437036665195246074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7200927917085622770, guid: a84a636a35a83fe408bd4b3d8c2b8058, type: 3}
+  m_PrefabInstance: {fileID: 7349451562720014344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &437036665195671002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7200927917085466066, guid: a84a636a35a83fe408bd4b3d8c2b8058, type: 3}
   m_PrefabInstance: {fileID: 7349451562720014344}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9040749876661428458
