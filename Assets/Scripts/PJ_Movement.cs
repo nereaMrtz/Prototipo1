@@ -52,4 +52,6 @@ public class PJ_Movement : MonoBehaviour
 
     public List<Flower> GetFlowers() { return flowers; }
     public int GetFlowerCounter() {  return flowerCounter; }
+
+    public Inventory_UI GetInventory() { return  inventory; }
 }

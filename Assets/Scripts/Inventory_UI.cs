@@ -12,14 +12,23 @@ public class Inventory_UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI purple;
 
 
-    int blueCounter =0; 
-    int redCounter =0;
-    int whiteCounter =0;
-    int purpleCounter=0;
+    public int blueCounter =2;
+    public int redCounter =0;
+    public int whiteCounter =0;
+    public int purpleCounter=0;
 
    void AddPurpleFlower()
     {
       purple.text += 1;
+    }
+    private void Start()
+    {
+        //blue.text = blueCounter;
+        //red.text = redCounter.ToString();
+        //white.text = whiteCounter.ToString();
+        //purple.text = purpleCounter.ToString();
+
+        //Debug.Log(blue.text);
     }
 
     public void AddFlowerToInventory(Index color)

@@ -142,8 +142,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5024686612658163016}
-  m_LocalRotation: {x: -0.000000021855659, y: -0.0018556714, z: 4.0559556e-11, w: -0.99999833}
-  m_LocalPosition: {x: -2.1917386, y: -5.6777954, z: 2.212213}
+  m_LocalRotation: {x: -0.000000021855657, y: -0.0018557367, z: 4.0558414e-11, w: -0.9999983}
+  m_LocalPosition: {x: -2.1917248, y: -5.6777954, z: 2.2122116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,8 +265,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863053957475475853}
-  m_LocalRotation: {x: -0.000000021855659, y: -0.0018556714, z: 4.0559556e-11, w: -0.99999833}
-  m_LocalPosition: {x: -2.1917386, y: -5.6777954, z: 2.212213}
+  m_LocalRotation: {x: -0.000000021855657, y: -0.0018557367, z: 4.0558414e-11, w: -0.9999983}
+  m_LocalPosition: {x: -2.1917248, y: -5.6777954, z: 2.2122116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 4517950552924513177}
-  _speed: 5
+  _speed: 8
   _rotationSpeed: 120
-  inventory: {fileID: 0}
+  inventory: {fileID: 8329515221704072329}
   handFlower1: {fileID: 4845227622287359868}
   handFlower4: {fileID: 1212185393917921885}
   potion: {fileID: 437036665195671002}
@@ -900,3 +900,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6033554683399335895, guid: 9860349dc34fa654ba3227653bbe131b, type: 3}
   m_PrefabInstance: {fileID: 9040749876661428458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8329515221704072329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1076171102623824995, guid: 9860349dc34fa654ba3227653bbe131b, type: 3}
+  m_PrefabInstance: {fileID: 9040749876661428458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a721fdc010adf5b4d8b2d1791b0d4708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
