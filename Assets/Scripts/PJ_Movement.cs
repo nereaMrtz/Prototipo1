@@ -18,6 +18,8 @@ public class PJ_Movement : MonoBehaviour
     List<Flower> flowers = new List<Flower>();
     int flowerCounter = 0;
 
+    [SerializeField] public GameObject handFlower1;
+    [SerializeField] public GameObject handFlower4;
     public void Update()
     {
         this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);

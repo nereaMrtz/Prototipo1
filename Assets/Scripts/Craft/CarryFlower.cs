@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class CarryFlower : MonoBehaviour
 {
-    public GameObject pickFlower;
-    public GameObject handFlower;
+   
+    Flower colorFlower;
+    PJ_Movement aux;
+    
     private void OnMouseDown()
     {
-        if(pickFlower.tag == "flower")
+        if(gameObject.tag == "flower")
         {
+            colorFlower = gameObject.GetComponent<Flower>();
+            aux = FindAnyObjectByType<PJ_Movement>();
             Debug.Log("carry flor");
-            handFlower.SetActive(true);
+            aux.handFlower1.SetActive(true);
         }
     }
 }
