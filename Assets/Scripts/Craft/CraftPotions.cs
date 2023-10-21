@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class CraftPotions : MonoBehaviour
 {
-    public GameObject handFlower1;
-    public GameObject handFlower4;
-    public GameObject newPotion;
-    
-
     List<Potions> potions = new List<Potions>();
     int potionCounter = 0;
 
+    PJ_Movement pj;
+
+    private void Start()
+    {
+        pj = FindAnyObjectByType<PJ_Movement>();
+        
+    }
+
     public void OnMouseDown()
     {
-      if(handFlower1.activeSelf == true && handFlower4.activeSelf == true)
+      if (pj.handFlower1.activeSelf == true && pj.handFlower4.activeSelf == true)
         {
-            handFlower1.SetActive(false);
-            handFlower4.SetActive(false);
+            pj.handFlower1.SetActive(false);
+            pj.handFlower4.SetActive(false);
 
             //potions.Add(newPotion.gameObject.GetComponent<Potions>().GetPotion());
             potionCounter++;
             Debug.Log(potionCounter);
 
-            newPotion.SetActive(true);
+            pj.potion.SetActive(true);
         }
     }
 

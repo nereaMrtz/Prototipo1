@@ -18,6 +18,10 @@ public class PJ_Movement : MonoBehaviour
     List<Flower> flowers = new List<Flower>();
     int flowerCounter = 0;
 
+    [SerializeField] public GameObject handFlower1;
+    [SerializeField] public GameObject handFlower4;
+
+    [SerializeField]public GameObject potion;
     public void Update()
     {
         this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
@@ -48,4 +52,6 @@ public class PJ_Movement : MonoBehaviour
 
     public List<Flower> GetFlowers() { return flowers; }
     public int GetFlowerCounter() {  return flowerCounter; }
+
+    public Inventory_UI GetInventory() { return  inventory; }
 }
