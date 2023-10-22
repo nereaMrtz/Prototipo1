@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class NPC : MonoBehaviour
 {
@@ -20,10 +21,12 @@ public class NPC : MonoBehaviour
 
     [SerializeField] string election1;
     [SerializeField] string election2;
+
+    
     void Start()
     {
         dialogueText.text = "";
-
+        election.ResetButtons();
     }
 
     void Update()
@@ -46,12 +49,29 @@ public class NPC : MonoBehaviour
         {
             RemoveText();
         }
-       
+
+
+        //Cuando el botón está pulsado
+        if (election.GetElection() == 1)
+        {
+            //Debug.Log("Primera opcion");
+
+        }
+        else if (election.GetElection() == 2)
+        {
+            //Debug.Log("Segunda opcion");
+            RemoveText();
+            election.ResetButtons();
+        }
+        else
+        {
+           // Debug.Log("No opcion");
+        }
     }
 
     public void RemoveText()
     {
-        StopCoroutine(typing);
+        if (typing != null) { StopCoroutine(typing); }
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
@@ -68,17 +88,17 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
+
         if (index < dialogue.Length - 1)
         {
             index++;
             dialogueText.text = "";
-            //StopCoroutine(typing);
             typing = StartCoroutine(Typing());
         }
         else
         {
             // Desactivar texto
-            StopCoroutine(typing);
+            if (typing != null) { StopCoroutine(typing); }
             dialogueText.text = "";
             index = 0;
 
@@ -102,11 +122,7 @@ public class NPC : MonoBehaviour
         {
             playerIsClose = false;
             RemoveText();
+            election.ResetButtons();
         }
-    }
-
-    void EndDialog()
-    {
-        RemoveText();
     }
 }

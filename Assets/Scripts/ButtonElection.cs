@@ -12,8 +12,8 @@ public class ButtonElection : MonoBehaviour
     public TextMeshProUGUI buttonText1;
     public TextMeshProUGUI buttonText2;
 
-    //public string textButton1;
-    // Start is called before the first frame update
+    int election = 0; // true = 1 ; false = 2
+
     public void SetActiveButtons(string b1Text, string b2Text)
     {
         button1.SetActive(true);
@@ -23,18 +23,35 @@ public class ButtonElection : MonoBehaviour
         buttonText2.text = b2Text;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(election);
     }
 
     public void Button1()
     {
-        Debug.Log("Opción 1");
+        election = 1;
     }
     public void Button2()
     {
-        
+        election = 2;   
     }
+
+    public void ResetButtons()
+    {
+        election = 0;
+        button1.SetActive(false);
+        button2.SetActive(false);
+    }
+
+    public int GetElection()
+    {
+        return election;
+    }
+
+    public void SetElection(int number)
+    {
+        election = number;
+    }
+
 }

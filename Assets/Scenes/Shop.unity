@@ -592,10 +592,10 @@ MonoBehaviour:
       - m_Target: {fileID: 2119650588}
         m_TargetAssemblyTypeName: ButtonElection, Assembly-CSharp
         m_MethodName: Button2
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: NPC, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9762,6 +9762,10 @@ PrefabInstance:
       value: NPC2
       objectReference: {fileID: 0}
     - target: {fileID: 3322550293973763405, guid: f5fa76002e6994443b2fc81d48326cd9, type: 3}
+      propertyPath: e
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322550293973763405, guid: f5fa76002e6994443b2fc81d48326cd9, type: 3}
       propertyPath: election
       value: 
       objectReference: {fileID: 2119650588}
@@ -9772,6 +9776,10 @@ PrefabInstance:
     - target: {fileID: 3322550293973763405, guid: f5fa76002e6994443b2fc81d48326cd9, type: 3}
       propertyPath: election2
       value: Dame unos minutos que lo piense
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322550293973763405, guid: f5fa76002e6994443b2fc81d48326cd9, type: 3}
+      propertyPath: wordSpeed
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3322550293973763405, guid: f5fa76002e6994443b2fc81d48326cd9, type: 3}
       propertyPath: dialogueText
@@ -9916,16 +9924,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1733841206736865038, guid: 1d908f840d16b154f8272c2b9e961d6d, type: 3}
+      propertyPath: e
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733841206736865038, guid: 1d908f840d16b154f8272c2b9e961d6d, type: 3}
       propertyPath: election
       value: 
       objectReference: {fileID: 2119650588}
     - target: {fileID: 1733841206736865038, guid: 1d908f840d16b154f8272c2b9e961d6d, type: 3}
       propertyPath: election1
-      value: "De hecho tengo una buena soluci\xF3n por aqu\xED..."
+      value: Me has convencido
       objectReference: {fileID: 0}
     - target: {fileID: 1733841206736865038, guid: 1d908f840d16b154f8272c2b9e961d6d, type: 3}
       propertyPath: election2
-      value: Dame unos minutos que lo piense
+      value: Ahora vuelvo...
       objectReference: {fileID: 0}
     - target: {fileID: 1733841206736865038, guid: 1d908f840d16b154f8272c2b9e961d6d, type: 3}
       propertyPath: dialogueText
