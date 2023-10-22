@@ -15,9 +15,15 @@ public class NPC : MonoBehaviour
     public bool playerIsClose;
 
     Coroutine typing;
+
+   [SerializeField] ButtonElection election;
+
+    [SerializeField] string election1;
+    [SerializeField] string election2;
     void Start()
     {
         dialogueText.text = "";
+
     }
 
     void Update()
@@ -71,7 +77,13 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            RemoveText();
+            // Desactivar texto
+            StopCoroutine(typing);
+            dialogueText.text = "";
+            index = 0;
+
+            // Activar botones
+            election.SetActiveButtons(election1, election2);
         }
     }
 
@@ -91,5 +103,10 @@ public class NPC : MonoBehaviour
             playerIsClose = false;
             RemoveText();
         }
+    }
+
+    void EndDialog()
+    {
+        RemoveText();
     }
 }

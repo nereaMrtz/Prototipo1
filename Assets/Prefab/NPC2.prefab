@@ -223,9 +223,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
-  dialogue: []
-  wordSpeed: 0.06
+  dialogue:
+  - "Qu\xE9 sitio tan t\xE9trico..."
+  - "Vengo por necesidad, hay una mala hierba que est\xE1 amenazando mis campos"
+  - "\xBFTienes algo para solucionarlo?"
+  wordSpeed: 0.03
   playerIsClose: 0
+  election: {fileID: 0}
 --- !u!4 &1084868731243746693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61c0587a32d4ca74aad58e325bd0360d, type: 3}
