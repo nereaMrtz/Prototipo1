@@ -124,6 +124,10 @@ MonoBehaviour:
   red: {fileID: 3174317210376907892}
   white: {fileID: 6477115773642331438}
   purple: {fileID: 1018564229432858027}
+  blueCounter: 0
+  redCounter: 0
+  whiteCounter: 0
+  purpleCounter: 0
 --- !u!1 &2146219084746841437
 GameObject:
   m_ObjectHideFlags: 0
