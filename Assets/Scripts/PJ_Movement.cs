@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -22,6 +18,14 @@ public class PJ_Movement : MonoBehaviour
     [SerializeField] public GameObject handFlower4;
 
     [SerializeField]public GameObject potion;
+
+    private AudioManager sound;
+
+    public void Start()
+    {
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+    }
+
     public void Update()
     {
         this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
@@ -31,9 +35,19 @@ public class PJ_Movement : MonoBehaviour
         move += Physics.gravity;
         _controller.Move(move * _speed);
         this.transform.Rotate(this.rotation);
+
+        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && !sound.grassSteps.isPlaying)
+        {
+            sound.grassSteps.Play();
+        }
+
+        else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
+        {
+            sound.grassSteps.Pause();
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other)
     {
         if(other.tag == "flower")
         {
@@ -46,6 +60,8 @@ public class PJ_Movement : MonoBehaviour
                 inventory.AddFlowerToInventory(flowers[flowerCounter].GetColor());
                 flowerCounter++;
                 Destroy(other.gameObject);
+
+                sound.pickup.Play();
             }
         }
     }

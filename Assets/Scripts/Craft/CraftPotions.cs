@@ -9,10 +9,12 @@ public class CraftPotions : MonoBehaviour
 
     PJ_Movement pj;
 
+    private AudioManager sound;
+
     private void Start()
     {
         pj = FindAnyObjectByType<PJ_Movement>();
-        
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
     }
 
     public void OnMouseDown()
@@ -27,6 +29,9 @@ public class CraftPotions : MonoBehaviour
             Debug.Log(potionCounter);
 
             pj.potion.SetActive(true);
+
+            // Sonidito poti
+            sound.pickupPotion.Play();
         }
     }
 
