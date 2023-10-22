@@ -22,11 +22,13 @@ public class NPC : MonoBehaviour
     [SerializeField] string election1;
     [SerializeField] string election2;
 
+    [SerializeField] GameObject e;
     
     void Start()
     {
         dialogueText.text = "";
         election.ResetButtons();
+        e.SetActive(false);
     }
 
     void Update()
@@ -41,6 +43,7 @@ public class NPC : MonoBehaviour
             }
             else if (dialogueText.text == dialogue[index])
             {
+               
                 NextLine();
             }
 
@@ -84,10 +87,12 @@ public class NPC : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
+        e.SetActive(true);
     }
 
     public void NextLine()
     {
+        e.SetActive(false);
 
         if (index < dialogue.Length - 1)
         {
