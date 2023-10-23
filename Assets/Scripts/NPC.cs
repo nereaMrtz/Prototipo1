@@ -23,12 +23,15 @@ public class NPC : MonoBehaviour
     [SerializeField] string election2;
 
     [SerializeField] GameObject e;
-    
+
+    private AudioManager sound;
+
     void Start()
     {
         dialogueText.text = "";
         election.ResetButtons();
         e.SetActive(false);
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -46,7 +49,7 @@ public class NPC : MonoBehaviour
                
                 NextLine();
             }
-
+            sound.select.Play();
         }
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
         {
@@ -58,6 +61,17 @@ public class NPC : MonoBehaviour
         if (election.GetElection() == 1)
         {
             //Debug.Log("Primera opcion");
+            if (gameObject.tag.Equals("EvilNPC"))
+            {
+                // Sonido polisia
+                // Cambio de escena chuec
+            }
+
+            if (gameObject.tag.Equals("GoodNPC"))
+            {
+                // Sonido dinero
+                // Cambio de escena chachi
+            }
 
         }
         else if (election.GetElection() == 2)
@@ -85,6 +99,8 @@ public class NPC : MonoBehaviour
         foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
+            // Dialogue sound
+            sound.voice.Play();
             yield return new WaitForSeconds(wordSpeed);
         }
         e.SetActive(true);

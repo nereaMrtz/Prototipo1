@@ -5,9 +5,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] public AudioSource grassSteps;
-    [SerializeField] public AudioSource stoneSteps;
+    [SerializeField] public AudioSource voice;
     [SerializeField] public AudioSource select;
     [SerializeField] public AudioSource pickupPotion;
     [SerializeField] public AudioSource pickup;
     [SerializeField] public AudioSource song;
+    [SerializeField] public AudioSource finalGood;
+    [SerializeField] public AudioSource finalBad;
 }
