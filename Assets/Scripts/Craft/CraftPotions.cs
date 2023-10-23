@@ -29,7 +29,7 @@ public class CraftPotions : MonoBehaviour
             Debug.Log(potionCounter);
 
             pj.potion.SetActive(true);
-            pj.hasPotion = true;
+            pj.SetPotion(true);
 
             // Sonidito poti
             sound.pickupPotion.Play();

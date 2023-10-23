@@ -12,6 +12,6 @@ public class Exit : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

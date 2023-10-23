@@ -6,8 +6,8 @@ TagManager:
   tags:
   - flower
   - AM
-  - EvilNPC
   - GoodNPC
+  - EvilNPC
   layers:
   - Default
   - TransparentFX

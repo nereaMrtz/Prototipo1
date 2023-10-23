@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3718267379813461770}
   m_Layer: 0
   m_Name: NPC1
-  m_TagString: Untagged
+  m_TagString: EvilNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rogue
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0f8226764a73cfc4b95ed79d74c51b91, type: 3}
+      propertyPath: m_TagString
+      value: EvilNPC
+      objectReference: {fileID: 0}
     - target: {fileID: 1168437713928847705, guid: 0f8226764a73cfc4b95ed79d74c51b91, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -210,6 +214,13 @@ MonoBehaviour:
   - "Lo mantendr\xEDamos en secreto... \xBFQu\xE9 me dices?"
   wordSpeed: 0.03
   playerIsClose: 0
+  election: {fileID: 0}
+  election1: Me has convencido (+12 monedas)
+  electionSinPoti: "\xA1Ahora vuelvo con esa soluci\xF3n! (a\xFAn no tienes la poci\xF3n)"
+  election2: Ahora vuelvo...
+  e: {fileID: 0}
+  potion: 0
+  isEvil: 1
 --- !u!65 &3778255985777520426
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -24,16 +24,20 @@ public class NPC : MonoBehaviour
     [SerializeField] string electionSinPoti;
     [SerializeField] string election2;
 
+    [SerializeField] GameObject firstButton;
+    [SerializeField] GameObject secondButton;
+
     [SerializeField] GameObject e;
 
     private AudioManager sound;
 
-    bool potion;
+    public bool potion = false;
+
+    [SerializeField] bool isEvil;
 
     void Start()
     {
-        potion = false;
-         
+  
         dialogueText.text = "";
         election.ResetButtons();
         e.SetActive(false);
@@ -66,22 +70,23 @@ public class NPC : MonoBehaviour
         //Cuando el botón está pulsado
         if (election.GetElection() == 1)
         {
-            
-            if (this.CompareTag("EvilNPC") && potion)
+
+            if ( isEvil == true && potion == true)
             {
-                SceneManager.LoadScene(5); // Final malo
+                SceneManager.LoadScene(6); // Final malo
+                Debug.Log("para ya porfavor");
             }
-            else if (this.CompareTag("EvilNPC") && !potion)
+            else if (isEvil == true && potion == false)
             {
                 RemoveText();
                 election.ResetButtons();
             }
 
-            if (gameObject.tag.Equals("GoodNPC") && potion)
+            else if ( isEvil == false && potion == true)
             {
-                SceneManager.LoadScene(4); // Final bueno
+                SceneManager.LoadScene(5); // Final bueno
             }
-            else if (this.CompareTag("GoodNPC") && !potion)
+            else if (isEvil == false && potion == false)
             {
                 RemoveText();
                 election.ResetButtons();
@@ -96,7 +101,7 @@ public class NPC : MonoBehaviour
         }
         else
         {
-           // Debug.Log("No opcion");
+            Debug.Log("No opcion");
         }
     }
 
@@ -138,9 +143,9 @@ public class NPC : MonoBehaviour
             index = 0;
 
             // Activar botones
-            if(!potion)
-            election.SetActiveButtons(electionSinPoti, election2);
-            else { election.SetActiveButtons(election1, election2); }
+            if(potion)
+            election.SetActiveButtons(election1, election2, firstButton, secondButton);
+            else {/* election.SetActiveButtons(election1, election2, firstButton, secondButton);*/ }
         }
     }
 
@@ -151,7 +156,7 @@ public class NPC : MonoBehaviour
             playerIsClose = true;
             Debug.Log("Player entro en collider");
 
-            potion = other.gameObject.GetComponent<PJ_Movement>().hasPotion;
+            potion = other.gameObject.GetComponent<PJ_Movement>().GetPotion();
         }
     }
 

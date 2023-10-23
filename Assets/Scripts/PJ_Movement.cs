@@ -19,7 +19,7 @@ public class PJ_Movement : MonoBehaviour
 
     [SerializeField]public GameObject potion;
 
-    public bool hasPotion;
+    public bool hasPotion = false;
 
     private AudioManager sound;
 
@@ -31,7 +31,6 @@ public class PJ_Movement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        hasPotion = false;
     }
 
     public void Update()
@@ -95,4 +94,13 @@ public class PJ_Movement : MonoBehaviour
     public int GetFlowerCounter() {  return flowerCounter; }
 
     public Inventory_UI GetInventory() { return  inventory; }
+
+    public bool GetPotion()
+    {
+        return hasPotion;
+    }
+    public void SetPotion(bool si)
+    {
+        hasPotion = si;
+    }
 }

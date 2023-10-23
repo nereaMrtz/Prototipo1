@@ -14,13 +14,15 @@ public class ButtonElection : MonoBehaviour
 
     int election = 0; // true = 1 ; false = 2
 
-    public void SetActiveButtons(string b1Text, string b2Text)
+    public void SetActiveButtons(string b1Text, string b2Text, GameObject b1, GameObject b2)
     {
         button1.SetActive(true);
         button2.SetActive(true);
 
         buttonText1.text = b1Text;
         buttonText2.text = b2Text;
+        button1 = b1;
+        button2 = b2;
     }
 
     void Update()
