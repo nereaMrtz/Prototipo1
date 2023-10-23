@@ -10,6 +10,4 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource pickupPotion;
     [SerializeField] public AudioSource pickup;
     [SerializeField] public AudioSource song;
-    [SerializeField] public AudioSource finalGood;
-    [SerializeField] public AudioSource finalBad;
 }

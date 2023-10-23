@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour
 {
@@ -20,14 +21,19 @@ public class NPC : MonoBehaviour
    [SerializeField] ButtonElection election;
 
     [SerializeField] string election1;
+    [SerializeField] string electionSinPoti;
     [SerializeField] string election2;
 
     [SerializeField] GameObject e;
 
     private AudioManager sound;
 
+    bool potion;
+
     void Start()
     {
+        potion = false;
+         
         dialogueText.text = "";
         election.ResetButtons();
         e.SetActive(false);
@@ -60,17 +66,25 @@ public class NPC : MonoBehaviour
         //Cuando el botón está pulsado
         if (election.GetElection() == 1)
         {
-            //Debug.Log("Primera opcion");
-            if (gameObject.tag.Equals("EvilNPC"))
+            
+            if (this.CompareTag("EvilNPC") && potion)
             {
-                // Sonido polisia
-                // Cambio de escena chuec
+                SceneManager.LoadScene(5); // Final malo
+            }
+            else if (this.CompareTag("EvilNPC") && !potion)
+            {
+                RemoveText();
+                election.ResetButtons();
             }
 
-            if (gameObject.tag.Equals("GoodNPC"))
+            if (gameObject.tag.Equals("GoodNPC") && potion)
             {
-                // Sonido dinero
-                // Cambio de escena chachi
+                SceneManager.LoadScene(4); // Final bueno
+            }
+            else if (this.CompareTag("GoodNPC") && !potion)
+            {
+                RemoveText();
+                election.ResetButtons();
             }
 
         }
@@ -124,7 +138,9 @@ public class NPC : MonoBehaviour
             index = 0;
 
             // Activar botones
-            election.SetActiveButtons(election1, election2);
+            if(!potion)
+            election.SetActiveButtons(electionSinPoti, election2);
+            else { election.SetActiveButtons(election1, election2); }
         }
     }
 
@@ -134,6 +150,8 @@ public class NPC : MonoBehaviour
         {
             playerIsClose = true;
             Debug.Log("Player entro en collider");
+
+            potion = other.gameObject.GetComponent<PJ_Movement>().hasPotion;
         }
     }
 

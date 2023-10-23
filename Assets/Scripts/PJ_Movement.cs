@@ -19,11 +19,14 @@ public class PJ_Movement : MonoBehaviour
 
     [SerializeField]public GameObject potion;
 
+    public bool hasPotion;
+
     private AudioManager sound;
 
     public void Start()
     {
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+        hasPotion = false;
     }
 
     public void Update()

@@ -12,7 +12,7 @@ public class Inventory_UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI purple;
 
 
-    public int blueCounter =2;
+    public int blueCounter =0;
     public int redCounter =0;
     public int whiteCounter =0;
     public int purpleCounter=0;
