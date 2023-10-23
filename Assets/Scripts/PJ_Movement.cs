@@ -23,8 +23,13 @@ public class PJ_Movement : MonoBehaviour
 
     private AudioManager sound;
 
+    Animator anim;
+
+    [SerializeField] GameObject eFlower;
+
     public void Start()
     {
+        anim = GetComponent<Animator>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         hasPotion = false;
     }
@@ -38,25 +43,33 @@ public class PJ_Movement : MonoBehaviour
         move += Physics.gravity;
         _controller.Move(move * _speed);
         this.transform.Rotate(this.rotation);
+        anim.SetBool("isWalking", false);
 
         if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && !sound.grassSteps.isPlaying)
         {
             sound.grassSteps.Play();
+            anim.SetBool("isWalking", true);
         }
 
         else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
         {
             sound.grassSteps.Pause();
+
         }
+        else {  }
     }
 
         private void OnTriggerStay(Collider other)
     {
         if(other.tag == "flower")
         {
-             Debug.Log("colisionando con flor");
+
+            // Debug.Log("colisionando con flor");
+            eFlower.SetActive(true);
+
             if (Input.GetKey(KeyCode.E))
             {
+                eFlower.SetActive(false);
                 flowers.Add(other.gameObject.GetComponent<Flower>().GetFlower());
                 //Debug.Log("guardo flor azul");
                 Debug.Log(flowers[flowerCounter].GetColor());
@@ -67,6 +80,15 @@ public class PJ_Movement : MonoBehaviour
                 sound.pickup.Play();
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "flower")
+        {
+            eFlower.SetActive(false);
+        }
+
     }
 
     public List<Flower> GetFlowers() { return flowers; }
